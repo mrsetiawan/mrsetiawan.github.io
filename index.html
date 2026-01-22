@@ -258,6 +258,7 @@
           tech: ["React Js", "Next Js", "Design System"],
           github: "#",
           external: "https://www.renos.id/",
+          renos: true,
         },
         {
           title: "K3 System",
@@ -266,6 +267,7 @@
           tech: ["React Js", "Ant Design"],
           github: "#",
           external: "https://lookprojects.online/",
+          freelance: true,
         },
         {
           title: "App BCR",
@@ -292,6 +294,7 @@
           tech: ["Vue Js", "Nuxt Js", "Vuetify"],
           github: "#",
           external: "https://dewatiket.id/",
+          freelance: true,
         },
         {
           title: "Mister Aladin",
@@ -300,6 +303,7 @@
           tech: ["Laravel", "Bootstrap", "JavaScript"],
           github: "#",
           external: "https://www.misteraladin.com/",
+          codelabs: true,
         },
         {
           title: "Dream and Dine",
@@ -307,6 +311,7 @@
           tech: ["Laravel", "JavaScript", "Bootstrap"],
           github: "#",
           external: "https://dreamndine.com/",
+          codelabs: true,
         },
         {
           title: "Kia Travels Land Tour",
@@ -314,6 +319,7 @@
           tech: ["Laravel", "Bootstrap", "JavaScript"],
           github: "#",
           external: "https://kiatravels.com/land-tour/",
+          codelabs: true,
         },
         {
           title: "Jismo Educational",
@@ -322,6 +328,7 @@
           tech: ["Laravel", "Bootstrap", "JavaScript"],
           github: "#",
           external: "https://jismo-educational.org/",
+          codelabs: true,
         },
         {
           title: "BidAja",
@@ -329,6 +336,7 @@
           tech: ["React Native", "Socket.IO", "Redux", "Firebase"],
           github: "#",
           external: "#",
+          codelabs: true,
         },
         {
           title: "ERP System Wira Energi",
@@ -346,6 +354,7 @@
           tech: ["Laravel", "Bootstrap", "JavaScript"],
           github: "#",
           external: "https://ga-services.astraotoparts.co.id/",
+          codelabs: true,
         },
         {
           title: "EzView ERP System",
@@ -354,6 +363,7 @@
           tech: ["React JS", "Material-UI", "Redux"],
           github: "#",
           external: "http://128.199.125.236/ezview/",
+          codelabs: true,
         },
       ];
 
@@ -385,6 +395,23 @@
 
       const ProjectCard = ({ project }) => (
         <article className="group relative flex flex-col justify-between p-6 h-full bg-navy-light border border-transparent hover:border-mint transition-all duration-300 rounded-lg hover:-translate-y-1">
+          <div className="absolute top-3 right-3 flex gap-2">
+            {project.renos && (
+              <div className="px-2 py-1 bg-blue-500 text-white text-xs font-bold rounded">
+                Renos
+              </div>
+            )}
+            {project.codelabs && (
+              <div className="px-2 py-1 bg-red-500 text-white text-xs font-bold rounded">
+                Codelabs
+              </div>
+            )}
+            {project.freelance && (
+              <div className="px-2 py-1 bg-mint text-navy-bg text-xs font-bold rounded">
+                Freelance
+              </div>
+            )}
+          </div>
           <div>
             <div className="flex justify-between items-center mb-8">
               <FolderIcon className="text-mint" />
