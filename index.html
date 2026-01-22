@@ -1,11 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Muhamad Rahmat Setiawan - Senior Frontend Engineer specializing in React, TypeScript, and modern web development." />
+    <meta
+      name="description"
+      content="Muhamad Rahmat Setiawan - Senior Frontend Engineer specializing in React, TypeScript, and modern web development."
+    />
     <meta name="author" content="Muhamad Rahmat Setiawan" />
-    <meta name="keywords" content="frontend developer, react, typescript, web development, portfolio" />
+    <meta
+      name="keywords"
+      content="frontend developer, react, typescript, web development, portfolio"
+    />
     <title>Muhamad Rahmat Setiawan - Frontend Developer</title>
 
     <!-- Fonts -->
@@ -51,7 +57,6 @@
               mint: {
                 DEFAULT: "#b4ff00",
                 hover: "#9ddb00",
-
               },
             },
             fontFamily: {
@@ -70,42 +75,42 @@
         padding: 0;
         box-sizing: border-box;
       }
-      
+
       html {
         scroll-behavior: smooth;
       }
-      
+
       body {
         overflow-x: hidden;
       }
-      
+
       ::-webkit-scrollbar {
         width: 8px;
       }
-      
+
       ::-webkit-scrollbar-track {
         background: #0a192f;
       }
-      
+
       ::-webkit-scrollbar-thumb {
         background: #233554;
         border-radius: 4px;
       }
-      
+
       ::-webkit-scrollbar-thumb:hover {
         background: #64ffda;
       }
-      
+
       .icon-size {
         width: 20px;
         height: 20px;
       }
-      
+
       .icon-size-lg {
         width: 40px;
         height: 40px;
       }
-      
+
       @media (max-width: 768px) {
         .md-negative-margin {
           margin-top: -15px;
@@ -196,12 +201,20 @@
       ];
 
       const socials = [
-        { icon: <GithubIcon />, url: "https://github.com/muhamadrahmatsetiawan", aria: "GitHub Profile" },
-        { icon: <LinkedInIcon />, url: "https://linkedin.com/in/muhamadrahmatsetiawan", aria: "LinkedIn Profile" },
+        {
+          icon: <GithubIcon />,
+          url: "https://github.com/mrsetiawan",
+          aria: "GitHub Profile",
+        },
+        {
+          icon: <LinkedInIcon />,
+          url: "https://www.linkedin.com/in/muhamad-rahmat-setiawan-12527b129/",
+          aria: "LinkedIn Profile",
+        },
       ];
 
       const experience = [
-         {
+        {
           role: "Frontend Engineer",
           company: "Pt Renos Marketplace Indonesia",
           date: "October 2021 - Present",
@@ -226,53 +239,121 @@
             "Maintained and optimized code to enhance performance",
           ],
         },
-       
+        {
+          role: "Freelance Web Developer",
+          company: "Self-Employed",
+          date: "January 2018 - Present",
+          points: [
+            "Built custom websites, web applications and cross-platform mobile apps depending on client requirements",
+            "Provided end-to-end solutions from initial consultation to deployment and maintenance",
+          ],
+        },
       ];
 
       const projects = [
         {
-          title: "Algorithmic Trading Bot",
+          title: "Renos Platform",
           description:
-            "A Python-based trading bot that uses advanced APIs to execute high-frequency trades.",
-          tech: ["Python", "Pandas", "API"],
+            "An e-commerce platform connecting buyers and sellers for various products.",
+          tech: ["React Js", "Next Js", "Design System"],
           github: "#",
-          external: "#",
+          external: "https://www.renos.id/",
         },
         {
-          title: "Chat Application",
+          title: "K3 System",
           description:
-            "Real-time chat application with multiple rooms, user authentication, and message history.",
-          tech: ["React", "Firebase", "Tailwind"],
+            "The K3 System encompasses various management tools, including features related to fire alarms, hydrants, CCTV, and comprehensive management reporting",
+          tech: ["React Js", "Ant Design"],
+          github: "#",
+          external: "https://lookprojects.online/",
+        },
+        {
+          title: "App BCR",
+          description:
+            "A web app for manage Facilitator, Practicioner and Member.",
+          tech: ["React", "Ant Design"],
+          github: "#",
+          external: "http://148.230.98.94/",
+          freelance: true,
+        },
+        {
+          title: "Arsdev Digital Agency",
+          description:
+            "Arsdev is a digital agency based in Indonesia that provides web development, mobile app development, and digital marketing services.",
+          tech: ["React Js", "Tailwind CSS"],
+          github: "#",
+          external: "https://arsdev.co.id/",
+          freelance: true,
+        },
+        {
+          title: "Dewa Tiket",
+          description:
+            "A concert ticket sales platform for Dewa 19 fans and others.",
+          tech: ["Vue Js", "Nuxt Js", "Vuetify"],
+          github: "#",
+          external: "https://dewatiket.id/",
+        },
+        {
+          title: "Mister Aladin",
+          description:
+            "Mister Aladin is an Indonesian online travel service that inspires and supports people to travel.",
+          tech: ["Laravel", "Bootstrap", "JavaScript"],
+          github: "#",
+          external: "https://www.misteraladin.com/",
+        },
+        {
+          title: "Dream and Dine",
+          description: "Experience the finest indonesia has to offer",
+          tech: ["Laravel", "JavaScript", "Bootstrap"],
+          github: "#",
+          external: "https://dreamndine.com/",
+        },
+        {
+          title: "Kia Travels Land Tour",
+          description: "Land Tour Booking Application",
+          tech: ["Laravel", "Bootstrap", "JavaScript"],
+          github: "#",
+          external: "https://kiatravels.com/land-tour/",
+        },
+        {
+          title: "Jismo Educational",
+          description:
+            "Empowering students through international mathematics and science competitions.",
+          tech: ["Laravel", "Bootstrap", "JavaScript"],
+          github: "#",
+          external: "https://jismo-educational.org/",
+        },
+        {
+          title: "BidAja",
+          description: "Auction Marketplace Application in Indonesia",
+          tech: ["React Native", "Socket.IO", "Redux", "Firebase"],
           github: "#",
           external: "#",
         },
         {
-          title: "Spotify Profile",
-          description: "A web app for visualizing personalized Spotify data.",
-          tech: ["React", "Styled Components", "Express"],
+          title: "ERP System Wira Energi",
+          description:
+            "An ERP system designed to streamline business processes and enhance operational efficiency.",
+          tech: ["Laravel", "Bootstrap", "JavaScript"],
           github: "#",
-          external: "#",
+          external: "https://wiraenergi.co.id/",
+          freelance: true,
         },
         {
-          title: "Halcyon Theme",
-          description: "A minimal, dark blue theme for VS Code.",
-          tech: ["VS Code", "JSON"],
+          title: "GA Service Astra Otoparts",
+          description:
+            "A web application for managing general affairs services at Astra Otoparts.",
+          tech: ["Laravel", "Bootstrap", "JavaScript"],
           github: "#",
-          external: "#",
+          external: "https://ga-services.astraotoparts.co.id/",
         },
         {
-          title: "Content CMS",
-          description: "A headless CMS that manages content.",
-          tech: ["React", "Node.js", "GraphQL"],
+          title: "EzView ERP System",
+          description:
+            "An ERP system tailored for small and medium-sized enterprises to manage their operations effectively.",
+          tech: ["React JS", "Material-UI", "Redux"],
           github: "#",
-          external: "#",
-        },
-        {
-          title: "Portfolio v1",
-          description: "The first iteration of my personal portfolio.",
-          tech: ["Gatsby", "Styled Components"],
-          github: "#",
-          external: "#",
+          external: "http://128.199.125.236/ezview/",
         },
       ];
 
@@ -309,15 +390,6 @@
               <FolderIcon className="text-mint" />
               <div className="flex gap-4">
                 <a
-                  href={project.github}
-                  aria-label={`View ${project.title} on GitHub`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-text hover:text-mint transition-colors"
-                >
-                  <GithubIcon />
-                </a>
-                <a
                   href={project.external}
                   aria-label={`View ${project.title} live demo`}
                   target="_blank"
@@ -335,7 +407,10 @@
               {project.description}
             </p>
           </div>
-          <ul className="flex flex-wrap gap-3 font-mono text-xs text-slate-light mt-auto" aria-label="Technologies used">
+          <ul
+            className="flex flex-wrap gap-3 font-mono text-xs text-slate-light mt-auto"
+            aria-label="Technologies used"
+          >
             {project.tech.map((t, i) => (
               <li key={i}>{t}</li>
             ))}
@@ -347,14 +422,18 @@
 
       const Sidebar = () => {
         return (
-          <aside className="fixed top-0 left-0 bottom-0 w-full h-auto md:h-screen md:w-[300px] bg-navy-bg text-slate-light flex flex-col justify-between p-6 md:p-0 md:pl-12 z-50" role="navigation" aria-label="Main navigation">
+          <aside
+            className="fixed top-0 left-0 bottom-0 w-full h-auto md:h-screen md:w-[300px] bg-navy-bg text-slate-light flex flex-col justify-between p-6 md:p-0 md:pl-12 z-50"
+            role="navigation"
+            aria-label="Main navigation"
+          >
             {/* Mobile Header */}
             <div className="flex justify-between items-center md:hidden">
               <a
                 href="/"
                 className="text-xl font-bold text-mint tracking-wider"
               >
-                JD
+                Muhamad Rahmat Setiawan
               </a>
               <div className="flex gap-4">
                 {socials.map((s, i) => (
@@ -390,21 +469,15 @@
                   </ul>
                 </nav>
               </div>
-
-              <div className="mt-auto pb-6">
-                <a
-                  href="mailto:muhamad@example.com"
-                  className="block text-slate-text font-mono text-sm hover:text-mint transition-colors text-right"
-                  aria-label="Send email to Muhamad Rahmat Setiawan"
-                >
-                  muhamad@example.com
-                </a>
-              </div>
             </div>
 
             {/* Desktop Socials (Bottom Left) */}
             <div className="hidden md:block absolute bottom-6 left-12">
-              <div className="flex flex-row gap-6 items-center" role="list" aria-label="Social media links">
+              <div
+                className="flex flex-row gap-6 items-center"
+                role="list"
+                aria-label="Social media links"
+              >
                 {socials.map((s, i) => (
                   <a
                     key={i}
@@ -432,9 +505,20 @@
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12">
             <div className="col-span-1 md:col-span-3 space-y-4 text-base md:text-lg text-slate-text">
               <p>
-                Frontend Web Developer with <span className="text-mint">5+ years of experience</span> building clean, performant interfaces with{" "}
-                <span className="text-mint">React.js</span>, <span className="text-mint">React Native</span>, <span className="text-mint">Vue.js</span>,{" "}
-                <span className="text-mint">Laravel</span> and other <span className="text-mint">JavaScript Frameworks</span>. Curious and growth‑driven, I enjoy learning new tools, improving code quality, and collaborating across teams to ship impactful products. Open to challenging roles that let me leverage React and modern web practices to solve real user problems.
+                Frontend Web Developer with{" "}
+                <span className="text-mint">8+ years of experience</span>{" "}
+                building clean, performant interfaces with{" "}
+                <span className="text-mint">React.js</span>,{" "}
+                <span className="text-mint">React Native</span>,{" "}
+                <span className="text-mint">Vue.js</span>,{" "}
+                <span className="text-mint">Laravel</span> and other{" "}
+                <span className="text-mint">JavaScript Frameworks</span>.
+                Curious and growth‑driven, I enjoy learning new tools, improving
+                code quality, and collaborating across teams to ship impactful
+                products. Currently expanding my expertise in{" "}
+                <span className="text-mint">cybersecurity</span>, focusing on
+                secure coding practices, web vulnerabilities, and defensive
+                programming.
               </p>
             </div>
             <div className="col-span-1 md:col-span-2 flex flex-col space-y-4 mt-8 md:mt-0">
@@ -455,6 +539,7 @@
                   "Figma",
                   "Laravel",
                   "Python",
+                  "Cybersecurity | Red Team",
                 ].map((t, i) => (
                   <li key={i} className="flex items-center">
                     <span className="text-mint mr-2">▹</span>
@@ -532,9 +617,15 @@
       );
 
       const Footer = () => (
-        <footer className="py-6 text-center md:text-left md:px-12 mb-6" role="contentinfo">
+        <footer
+          className="py-6 text-center md:text-left md:px-12 mb-6"
+          role="contentinfo"
+        >
           <div className="flex flex-col md:flex-row justify-between items-center font-mono text-xs text-slate-text">
-            <p>&copy; {new Date().getFullYear()} Designed & Built by Muhamad Rahmat Setiawan</p>
+            <p>
+              &copy; {new Date().getFullYear()} Designed & Built by Muhamad
+              Rahmat Setiawan
+            </p>
           </div>
         </footer>
       );
@@ -544,7 +635,11 @@
         return (
           <div className="flex flex-col md:flex-row min-h-screen">
             <Sidebar />
-            <main className="flex-grow md:ml-[300px] p-6 md:p-12 md:pr-24 w-full max-w-[960px] mx-auto" role="main" id="main-content">
+            <main
+              className="flex-grow md:ml-[300px] p-6 md:p-12 md:pr-24 w-full max-w-[960px] mx-auto"
+              role="main"
+              id="main-content"
+            >
               <About />
               <Experience />
               <Work />
