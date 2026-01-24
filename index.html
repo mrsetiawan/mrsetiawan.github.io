@@ -116,6 +116,51 @@
           margin-top: -15px;
         }
       }
+
+      /* Mobile Responsive Improvements */
+      @media (max-width: 640px) {
+        body {
+          font-size: 14px;
+        }
+
+        main {
+          padding: 1rem !important;
+        }
+
+        h2 {
+          font-size: 1.5rem !important;
+        }
+
+        h3 {
+          font-size: 1.125rem !important;
+        }
+
+        .grid-cols-1 {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Extra small devices */
+      @media (max-width: 480px) {
+        body {
+          font-size: 13px;
+        }
+
+        main {
+          padding: 0.75rem !important;
+        }
+
+        .icon-size {
+          width: 18px;
+          height: 18px;
+        }
+
+        .icon-size-lg {
+          width: 32px;
+          height: 32px;
+        }
+      }
     </style>
   </head>
   <body class="bg-navy-bg text-slate-text antialiased font-sans">
@@ -399,14 +444,14 @@
       );
 
       const SectionHeading = ({ number, title }) => (
-        <div className="flex items-center mb-10">
-          <span className="text-navy-lighter font-mono text-xl md:text-2xl font-bold mr-4 select-none">
+        <div className="flex items-center mb-8 md:mb-10 flex-wrap gap-2 md:gap-4">
+          <span className="text-navy-lighter font-mono text-lg md:text-xl lg:text-2xl font-bold select-none">
             {number}
           </span>
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-navy hover:text-mint transition-colors cursor-default">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-navy hover:text-mint transition-colors cursor-default">
             {title}
           </h2>
-          <div className="h-[1px] bg-navy-lighter ml-6 flex-grow md:max-w-[300px] opacity-40 hidden md:block"></div>
+          <div className="h-[1px] bg-navy-lighter ml-0 md:ml-6 flex-grow md:max-w-[300px] opacity-40 hidden md:block"></div>
         </div>
       );
 
@@ -465,89 +510,133 @@
       // --- 4. LAYOUT COMPONENTS ---
 
       const Sidebar = () => {
+        const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
         return (
-          <aside
-            className="fixed top-0 left-0 bottom-0 w-full h-auto md:h-screen md:w-[300px] bg-navy-bg text-slate-light flex flex-col justify-between p-6 md:p-0 md:pl-12 z-50"
-            role="navigation"
-            aria-label="Main navigation"
-          >
+          <>
             {/* Mobile Header */}
-            <div className="flex justify-between items-center md:hidden">
+            <div className="md:hidden fixed top-0 left-0 right-0 bg-navy-bg text-slate-light flex justify-between items-center p-4 z-40 border-b border-navy-lighter">
               <a
                 href="/"
-                className="text-xl font-bold text-mint tracking-wider"
+                className="text-sm font-bold text-mint tracking-wider truncate pr-2"
               >
-                Muhamad Rahmat Setiawan
+                MRS
               </a>
-              <div className="flex gap-4">
-                {socials.map((s, i) => (
-                  <a
-                    key={i}
-                    href={s.url}
-                    aria-label={s.aria}
-                    className="text-mint hover:text-white transition-colors"
-                  >
-                    {s.icon}
-                  </a>
-                ))}
-              </div>
+              <button
+                onClick={() => setMobileNavOpen(!mobileNavOpen)}
+                className="text-mint hover:text-white transition-colors p-2"
+                aria-label="Toggle mobile navigation"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {mobileNavOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
             </div>
 
-            {/* Desktop Content */}
-            <div className="hidden md:flex flex-col h-full justify-between">
-              <div className="flex flex-col justify-center h-full space-y-8 mt-12">
-                <a
-                  href="/"
-                  className="text-2xl font-bold text-slate-navy hover:text-mint transition-colors cursor-default tracking-wider mb-6"
-                >
-                  Muhamad Rahmat Setiawan
-                </a>
-
+            {/* Mobile Navigation Menu */}
+            {mobileNavOpen && (
+              <div className="md:hidden fixed top-16 left-0 right-0 bg-navy-light border-b border-navy-lighter z-30 p-4">
                 <nav aria-label="Primary">
-                  <ul className="space-y-4">
+                  <ul className="space-y-3">
                     {navItems.map((link, i) => (
-                      <NavItem key={i} href={link.to} number={i + 1}>
-                        {link.name}
-                      </NavItem>
+                      <li key={i}>
+                        <a 
+                          href={link.to} 
+                          className="flex items-center group relative px-2 py-2"
+                          onClick={() => setMobileNavOpen(false)}
+                        >
+                          <span className="text-mint text-xs font-mono mr-2">0{i + 1}.</span>
+                          <span className="text-slate-navy text-sm font-semibold tracking-wide group-hover:text-mint transition-colors duration-200">
+                            {link.name}
+                          </span>
+                        </a>
+                      </li>
                     ))}
                   </ul>
                 </nav>
+                <div className="md:hidden flex gap-4 mt-4 pt-4 border-t border-navy-lighter" role="list" aria-label="Social media links">
+                  {socials.map((s, i) => (
+                    <a
+                      key={i}
+                      href={s.url}
+                      aria-label={s.aria}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-slate-text hover:text-mint transition-colors"
+                    >
+                      {s.icon}
+                    </a>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
-            {/* Desktop Socials (Bottom Left) */}
-            <div className="hidden md:block absolute bottom-6 left-12">
-              <div
-                className="flex flex-row gap-6 items-center"
-                role="list"
-                aria-label="Social media links"
-              >
-                {socials.map((s, i) => (
+            {/* Desktop Sidebar */}
+            <aside
+              className="hidden md:flex fixed top-0 left-0 bottom-0 w-[300px] h-screen bg-navy-bg text-slate-light flex-col justify-between p-0 pl-12 z-50"
+              role="navigation"
+              aria-label="Main navigation"
+            >
+              {/* Desktop Content */}
+              <div className="flex flex-col h-full justify-between">
+                <div className="flex flex-col justify-center h-full space-y-8 mt-12">
                   <a
-                    key={i}
-                    href={s.url}
-                    aria-label={s.aria}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-text hover:text-mint transition-colors text-lg"
+                    href="/"
+                    className="text-2xl font-bold text-slate-navy hover:text-mint transition-colors cursor-default tracking-wider mb-6"
                   >
-                    {s.icon}
+                    Muhamad Rahmat Setiawan
                   </a>
-                ))}
+
+                  <nav aria-label="Primary">
+                    <ul className="space-y-4">
+                      {navItems.map((link, i) => (
+                        <NavItem key={i} href={link.to} number={i + 1}>
+                          {link.name}
+                        </NavItem>
+                      ))}
+                    </ul>
+                  </nav>
+                </div>
               </div>
-            </div>
-          </aside>
+
+              {/* Desktop Socials (Bottom Left) */}
+              <div className="absolute bottom-6 left-12">
+                <div
+                  className="flex flex-row gap-6 items-center"
+                  role="list"
+                  aria-label="Social media links"
+                >
+                  {socials.map((s, i) => (
+                    <a
+                      key={i}
+                      href={s.url}
+                      aria-label={s.aria}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-slate-text hover:text-mint transition-colors text-lg"
+                    >
+                      {s.icon}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </aside>
+          </>
         );
       };
 
       const About = () => (
         <section
           id="about"
-          className="min-h-[calc(100vh-80px)] flex flex-col justify-center mb-20"
+          className="min-h-screen md:min-h-[calc(100vh-80px)] flex flex-col justify-center mb-12 md:mb-20 pt-20 md:pt-0"
         >
           <SectionHeading number="01" title="About Me" />
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12">
-            <div className="col-span-1 md:col-span-3 space-y-4 text-base md:text-lg text-slate-text">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-12">
+            <div className="col-span-1 md:col-span-3 space-y-4 text-sm md:text-base lg:text-lg text-slate-text">
               <p>
                 Frontend Web Developer with{" "}
                 <span className="text-mint">5+ years of experience</span>{" "}
@@ -563,8 +652,8 @@
 
               </p>
             </div>
-            <div className="col-span-1 md:col-span-2 flex flex-col space-y-4 mt-8 md:mt-0">
-              <p className="font-mono text-sm text-slate-light mb-2">
+            <div className="col-span-1 md:col-span-2 flex flex-col space-y-4">
+              <p className="font-mono text-xs md:text-sm text-slate-light mb-2">
                 Technologies I work with:
               </p>
               <ul className="grid grid-cols-2 gap-2 font-mono text-xs text-slate-text">
@@ -594,23 +683,23 @@
       );
 
       const Experience = () => (
-        <section id="experience" className="mb-20 max-w-4xl">
+        <section id="experience" className="mb-12 md:mb-20 w-full">
           <SectionHeading number="02" title="Where I've Worked" />
-          <div className="border-l border-navy-lighter ml-6 md:ml-0 space-y-12">
+          <div className="border-l border-navy-lighter ml-4 md:ml-0 space-y-8 md:space-y-12">
             {experience.map((job, i) => (
-              <div key={i} className="relative pl-8">
+              <div key={i} className="relative pl-6 md:pl-8">
                 <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-navy-bg border-2 border-mint rounded-full"></div>
-                <h3 className="text-xl text-slate-navy font-bold">
-                  {job.role} <span className="text-mint">@ {job.company}</span>
+                <h3 className="text-lg md:text-xl text-slate-navy font-bold">
+                  {job.role} <span className="text-mint text-sm md:text-base">@ {job.company}</span>
                 </h3>
-                <p className="font-mono text-xs text-slate-light mb-4">
+                <p className="font-mono text-xs text-slate-light mb-3 md:mb-4">
                   {job.date}
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-2 md:space-y-3">
                   {job.points.map((point, pI) => (
                     <li
                       key={pI}
-                      className="text-slate-text text-sm leading-relaxed relative pl-6"
+                      className="text-slate-text text-xs md:text-sm leading-relaxed relative pl-4 md:pl-6"
                     >
                       <span className="absolute left-0 top-1.5 text-mint text-xs">
                         ▹
@@ -626,9 +715,9 @@
       );
 
       const Work = () => (
-        <section id="work" className="mb-20">
+        <section id="work" className="mb-12 md:mb-20 w-full">
           <SectionHeading number="03" title="Some Things I've Built" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {projects.map((p, i) => (
               <ProjectCard key={i} project={p} />
             ))}
@@ -637,19 +726,19 @@
       );
 
       const Contact = () => (
-        <section id="contact" className="max-w-3xl mx-auto text-center py-12">
-          <p className="text-mint font-mono mb-8">04. What's Next?</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-navy mb-6">
+        <section id="contact" className="max-w-3xl mx-auto text-center py-8 md:py-12 px-4">
+          <p className="text-mint font-mono text-xs md:text-sm mb-4 md:mb-8">04. What's Next?</p>
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-slate-navy mb-4 md:mb-6">
             Get In Touch
           </h2>
-          <p className="text-slate-text text-lg mb-12 max-w-lg mx-auto">
+          <p className="text-slate-text text-sm md:text-base lg:text-lg mb-8 md:mb-12 max-w-lg mx-auto">
             Although I'm not currently looking for any new opportunities, my
             inbox is always open. Whether you have a question or just want to
             say hi, I'll try my best to get back to you!
           </p>
           <a
             href="mailto:muhamadrahmatsetiawan@gmail.com"
-            className="inline-block px-6 py-4 border border-mint text-mint font-mono text-sm rounded hover:bg-mint/10 transition-all duration-300"
+            className="inline-block px-4 md:px-6 py-3 md:py-4 border border-mint text-mint font-mono text-xs md:text-sm rounded hover:bg-mint/10 transition-all duration-300"
             aria-label="Send email to start a conversation"
           >
             Say Hello
@@ -659,10 +748,10 @@
 
       const Footer = () => (
         <footer
-          className="py-6 text-center md:text-left md:px-12 mb-6"
+          className="py-4 md:py-6 text-center md:text-left md:px-12 mb-6 text-xs md:text-sm px-4"
           role="contentinfo"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center font-mono text-xs text-slate-text">
+          <div className="flex flex-col md:flex-row justify-between items-center font-mono text-slate-text">
             <p>
               &copy; {new Date().getFullYear()} Designed & Built by Muhamad
               Rahmat Setiawan
@@ -674,20 +763,22 @@
       // --- 5. MAIN APP ---
       const App = () => {
         return (
-          <div className="flex flex-col md:flex-row min-h-screen">
+          <>
             <Sidebar />
             <main
-              className="flex-grow md:ml-[300px] p-6 md:p-12 md:pr-24 w-full max-w-[960px] mx-auto"
+              className="md:ml-[300px] w-full pt-20 md:pt-0"
               role="main"
               id="main-content"
             >
-              <About />
-              <Experience />
-              <Work />
-              <Contact />
-              <Footer />
+              <div className="p-4 sm:p-6 md:p-12 md:pr-24 max-w-full md:max-w-[960px]">
+                <About />
+                <Experience />
+                <Work />
+                <Contact />
+                <Footer />
+              </div>
             </main>
-          </div>
+          </>
         );
       };
 
